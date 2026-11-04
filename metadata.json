@@ -1,0 +1,6 @@
+{
+  "name": "PDV & ERP Comercial Nexus",
+  "description": "Sistema completo de Ponto de Venda (PDV) e ERP Comercial integrado com retaguarda, controle de estoque, frente de caixa, TEF/cartões, emissão fiscal NFC-e/NF-e, financeiro e arquitetura Java Spring Boot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

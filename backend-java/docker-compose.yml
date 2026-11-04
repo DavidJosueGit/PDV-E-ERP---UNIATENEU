@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: nexus-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: nexus_pdv_erp
+      POSTGRES_USER: nexus_admin
+      POSTGRES_PASSWORD: SecretPassword123!
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nexus_admin -d nexus_pdv_erp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nexus-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/nexus_pdv_erp
+      SPRING_DATASOURCE_USERNAME: nexus_admin
+      SPRING_DATASOURCE_PASSWORD: SecretPassword123!
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:

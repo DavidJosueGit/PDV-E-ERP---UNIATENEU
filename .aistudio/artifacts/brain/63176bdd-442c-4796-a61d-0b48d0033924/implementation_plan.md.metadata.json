@@ -1,0 +1,6 @@
+{
+  "summary": "Plano detalhado de implementação para o recurso de impressão dual de cupons fiscais (térmico 80mm e A4) e o projeto completo de arquitetura do banco de dados relacional PostgreSQL para o sistema PDV + ERP comercial. Inclui modelagem multi-empresa com RLS, DDL database.sql, seed.sql, migrations Flyway, application.properties, documentação técnica e explorer interativo de banco de dados no frontend.",
+  "updatedAt": "2026-11-04T00:18:31.885585161Z",
+  "requestFeedback": true,
+  "userFacing": true
+}
